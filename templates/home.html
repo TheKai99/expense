@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    {% if messages %}
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+    {% endif %}
+
+    <h2><b>Welcome to Budgemap</b></h2>
+    <a href="{% url 'logout_page' %}">Logout</a>
+    <hr>
+    <hr>
+
+    <br><br><br>
+
+
+    <h2>Add Your Expense Bro</h2>
+
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <label for="amount">Amount:</label>
+        <input type="number" , id="amount" , name="amount">
+        <br><br>
+
+        <label for="category">Category:</label>
+        <select name="category" id="">
+            <option value="" selected disabled>Choose Category</option>
+            <option value="Food">Food</option>
+            <option value="Travel">Travel</option>
+            <option value="Stationary">Stationary</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Healthcare">Healthcare</option>
+            <option value="Personal Care">Personal Care</option>
+            <option value="Fitness">Fitness</option>
+        </select>
+
+
+        <br>
+        <br>
+
+        <label for="description">Description:</label>
+        <textarea name="description" id="description" rows="3" cols="25"
+            placeholder="write something bro..."></textarea>
+
+        <br><br>
+
+        <button type="submit">Add Expense</button>
+
+    </form>
+
+
+    <h2>Your Expenses</h2>
+
+    <form method="get" action="">
+        <label for="category-filter">Filter by category:</label>
+        <select name="category" id="category-filter" onchange="this.form.submit()">
+            <option value="" {% if not selected_category %}selected{% endif %}>All</option>
+            <option value="Food" {% if selected_category == "Food" %}selected{% endif %}>Food</option>
+            <option value="Travel" {% if selected_category == "Travel" %}selected{% endif %}>Travel</option>
+            <option value="Stationary" {% if selected_category == "Stationary" %}selected{% endif %}>Stationary</option>
+            <option value="Shopping" {% if selected_category == "Shopping" %}selected{% endif %}>Shopping</option>
+            <option value="Healthcare" {% if selected_category == "Healthcare" %}selected{% endif %}>Healthcare</option>
+            <option value="Personal Care" {% if selected_category == "Personal Care" %}selected{% endif %}>Personal Care
+            </option>
+            <option value="Fitness" {% if selected_category == "Fitness" %}selected{% endif %}>Fitness</option>
+        </select>
+    </form>
+
+
+    <ul>
+        {% for expense in expenses %}
+        <li>{{ expense.category }} — ₹{{ expense.amount }} — {{ expense.description }} <a
+                href="/delete/{{expense.id}}/">delete</button>
+                <p> </p><a href="/update/{{expense.id}}">Update</a></li>
+        {% empty %}
+        <li>No expenses yet.</li>
+        {% endfor %}
+    </ul>
+
+
+
+
+
+
+</body>
+</body>
+
+</html>

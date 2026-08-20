@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Add Your Expense Bro</h2>
+
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <label for="amount">Amount:</label>
+        <input value="{{queryset.amount}}" type="number" , id="amount" , name="amount">
+        <br><br>
+
+        <label for="category">Category:</label>
+        <select  name="category" id="">
+            <option value="" selected disabled>Choose Category</option>
+            <option value="Food" {% if queryset.category == "Food" %}selected{% endif %}>Food</option>
+            <option value="Travel" {% if queryset.category == "Travel" %}selected{% endif %}>Travel</option>
+            <option value="Stationary" {% if queryset.category == "Stationary" %}selected{% endif %}>Stationary</option>
+            <option value="Shopping" {% if queryset.category == "Shopping" %}selected{% endif %}>Shopping</option>
+            <option value="Healthcare" {% if queryset.category == "Healthcare" %}selected{% endif %}>Healthcare</option>
+            <option value="Personal Care" {% if queryset.category == "Personal Care" %}selected{% endif %}>Personal Care</option>
+            <option value="Fitness" {% if queryset.category == "Fitness" %}selected{% endif %}>Fitness</option>
+        </select>
+
+
+        <br>
+        <br>
+
+        <label for="description">Description:</label>
+        <textarea name= "description" , id="description" rows="3" cols="25"
+            placeholder="write something bro...">{{queryset.description}}</textarea>
+
+        <br><br>
+
+        <button type="submit">Update expense</button>
+
+    </form>
+</body>
+</html>
