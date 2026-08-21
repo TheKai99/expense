@@ -2,9 +2,15 @@
 
 A simple and modern expense tracking application built with Django to help users track spending, manage expenses, and understand their financial habits.
 
-## 🚀 Live Demo
+## 🧑‍💻Live Demo
 
 [**Open Budgemap →**](https://expense-production-4c4e.up.railway.app/)
+
+![Register page](register.jpg)
+
+![Login page](login.jpg)
+
+
 
 
 
