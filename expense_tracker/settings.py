@@ -30,6 +30,10 @@ ALLOWED_HOSTS = ["expense-production-4c4e.up.railway.app",
     "localhost",]
 
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://expense-production-4c4e.up.railway.app",
+]
+
 # Application definition
 
 INSTALLED_APPS = [
