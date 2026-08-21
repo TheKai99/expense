@@ -1,0 +1,27 @@
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Django
+*.pyc
+__pycache__/
+db.sqlite3
+db.sqlite3-journal
+*.log
+media/
+
+# Environment variables / secrets
+.env
+*.env
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Migration files (optional - many teams DO commit these, see note below)
+# */migrations/*.py
+# !*/migrations/__init__.py

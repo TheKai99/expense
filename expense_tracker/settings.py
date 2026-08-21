@@ -56,6 +56,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'expense_tracker.urls'
 
 import os
+GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY')
 
 TEMPLATES = [
     {

@@ -27,4 +27,5 @@ urlpatterns = [
     path('logout/' , logout_page , name='logout_page'),
     path('delete/<id>/' , delete , name='delete'),
     path('update/<id>/' , update , name='update'),
+    path('ai-summary/' , ai_summary , name='ai_summary' ),
 ]
