@@ -1,2 +1,2 @@
 [deploy]
-startCommand = "gunicorn expense_tracker.wsgi:application"
+startCommand = "python manage.py migrate && gunicorn expense_tracker.wsgi:application"
