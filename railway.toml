@@ -1,1 +1,2 @@
-gunicorn expense_tracker.wsgi:application
+[deploy]
+startCommand = "gunicorn expense_tracker.wsgi:application"
